@@ -18,7 +18,6 @@ function App() {
     );
     const data = await response.json();
     setRecipes(data.hits);
-    console.log(data.hits);
   };
 
   const handlerSearch = (e) => {
@@ -46,15 +45,19 @@ function App() {
           Search
         </button>
       </form>
+      <div className="container">
+      <div className="row ">
       {recipes.map((recipe, index) => (
         <Recipe
-          key={index}
-          title={recipe.recipe.label}
-          calories={recipe.recipe.calories}
-          image={recipe.recipe.image}
-          ingradiant={recipe.recipe.ingredientLines}
+        key={index}
+        title={recipe.recipe.label}
+        calories={recipe.recipe.calories}
+        image={recipe.recipe.image}
+        ingradiant={recipe.recipe.ingredientLines}
         />
-      ))}
+        ))}
+        </div>
+      </div>
     </div>
   );
 }
